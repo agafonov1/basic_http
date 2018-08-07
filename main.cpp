@@ -5,6 +5,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include "getopt.h"
+#include "server.hpp"
 
 
 using namespace std;
@@ -61,6 +62,9 @@ int main(int argc, char **argv){
 		close(STDOUT_FILENO);
 		close(STDERR_FILENO);
 		// open file for io
+	 	boost::asio::io_service io_service;
+		server s(io_service, port);
+		io_service.run(); 
 	}
 	else{
 		return 0;
