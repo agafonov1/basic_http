@@ -45,6 +45,9 @@ void session(socket_ptr sock, std::string path)
       if(methode == "GET"){
 	//std::cout<<"new get request"<<std::endl;
 	request>>file;
+	size_t index = file.find('?');
+      	file = file.substr(0,index);
+	std::cout<<file<<std::endl;					
 	std::string full_path =path+ file;
 	//std::cout<<"requested: "<<full_path<<std::endl;
 	std::ifstream ifs;
