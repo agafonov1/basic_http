@@ -63,8 +63,8 @@ int main(int argc, char **argv){
 		close(STDERR_FILENO);
 		// open file for io
 	 	boost::asio::io_service io_service;
-		server s(io_service, port);
-		io_service.run(); 
+		server(io_service, port);
+ 
 	}
 	else{
 		return 0;
