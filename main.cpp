@@ -4,14 +4,14 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "getopt.h"
+#include <getopt.h>
 #include "server.hpp"
 
 
 using namespace std;
 
 int main(int argc, char **argv){
-	int opt;
+	int opt;	
 	int port=80;
 	const char* server_address = "127.0.0.1";
 	const char* directory = "/tmp/server/";
