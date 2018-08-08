@@ -64,7 +64,7 @@ int main(int argc, char **argv){
 		// open file for io
 	 	boost::asio::io_service io_service;
 		std::string Sdirectory(directory);
-		server(io_service, port, Sdirectory, "127.0.0.1");
+		server(io_service, port, Sdirectory, server_address);
  
 	}
 	else{

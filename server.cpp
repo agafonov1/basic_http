@@ -80,7 +80,9 @@ void session(socket_ptr sock, std::string path)
 
 void server(boost::asio::io_service& io_context, unsigned short port, std::string filepath, std::string IP_addr)
 {
-  tcp::acceptor a(io_context, tcp::endpoint(tcp::v4(), port));
+  boost::asio::ip::address  addr;
+  addr.from_string(IP_addr);	
+  tcp::acceptor a(io_context, tcp::endpoint(addr, port));
   for (;;)
   {
     socket_ptr sock(new tcp::socket(io_context));
