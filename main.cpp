@@ -40,7 +40,7 @@ int main(int argc, char **argv){
 			break;
 		}
 	}
-	getopt();
+	getopt(argc, argv, "");
 //	cout<<"Server address: "<<server_address<<endl;
 //	cout<<"Established port:"<<port<<endl;
 //	cout<<"Directory: "<<directory<<endl; 
