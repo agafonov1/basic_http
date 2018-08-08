@@ -34,7 +34,7 @@ void session(socket_ptr sock, std::string path)
         break; // Connection closed cleanly by peer.
       else if (error)
         throw boost::system::system_error(error); // Some other error. 
-      std::ofstream logger("log.d", std::ofstream::app);
+      std::ofstream logger("/tmp/log.d", std::ofstream::app);
       logger<<data;	
       logger.close();	
       //std::cout<<data;
