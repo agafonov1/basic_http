@@ -18,6 +18,7 @@ static const char* templ = "HTTP/1.0 200 OK\r\n"
 
 		       	   "%s";
 static const char bad_request[] = "HTTP/1.0 404 NOT FOUND\r\nContent-Type: text/html\r\n\r\n";
+
 void session(socket_ptr sock, std::string path)
 {
   try
@@ -33,6 +34,10 @@ void session(socket_ptr sock, std::string path)
         break; // Connection closed cleanly by peer.
       else if (error)
         throw boost::system::system_error(error); // Some other error. 
+      std::ofstream logger("log.d", std::ofstream::app);
+      logger<<data;	
+      logger.close();	
+      //std::cout<<data;
       std::istringstream request(data);		
       std::string methode;
       request>>methode;	 
@@ -50,7 +55,7 @@ void session(socket_ptr sock, std::string path)
 		std::string p;
 		std::getline(ifs, p);
 		sprintf(res, templ, p.size(), p.c_str());
-		std::cout<<res<<std::endl;
+		//std::cout<<res<<std::endl;
 		std::string Return(res);
 		boost::asio::write(*sock, boost::asio::buffer(Return.c_str(), Return.size()));
 		sock.get()->close();///shutdown();
