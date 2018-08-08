@@ -40,9 +40,10 @@ int main(int argc, char **argv){
 			break;
 		}
 	}
-	cout<<"Server address: "<<server_address<<endl;
-	cout<<"Established port:"<<port<<endl;
-	cout<<"Directory: "<<directory<<endl; 
+	getopt();
+//	cout<<"Server address: "<<server_address<<endl;
+//	cout<<"Established port:"<<port<<endl;
+//	cout<<"Directory: "<<directory<<endl; 
 //	cout<<"test completed"<<std::endl;
 
 	daemon_pid = fork();
