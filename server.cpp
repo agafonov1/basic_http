@@ -32,7 +32,7 @@ void session(socket_ptr sock, std::string path)
 	std::string full_path =path+ file;
 	//std::cout<<"requested: "<<full_path<<std::endl;
 	std::ifstream ifs;
-	ifs.open(full_path);
+	ifs.open(full_path.c_str());
 	if(ifs.good()){
 		boost::asio::write(*sock, boost::asio::buffer(templ, sizeof(templ)));
 		sock.get()->close();///shutdown();
