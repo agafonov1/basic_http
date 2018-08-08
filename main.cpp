@@ -36,7 +36,7 @@ int main(int argc, char **argv){
 				}
 				break;
 			default:
-				std::cerr<<"unknown param: "<<to_string(opt)<<std::endl;
+				std::cerr<<"unknown param: "<<std::to_string(opt)<<std::endl;
 			break;
 		}
 	}
