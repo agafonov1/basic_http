@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <getopt.h>
 //const int max_length = 1024;
 
 typedef boost::shared_ptr<tcp::socket> socket_ptr;
@@ -19,6 +20,8 @@ static const char* templ = "HTTP/1.0 200 OK\r\n"
 		       	   "%s";
 static const char bad_request[] = "HTTP/1.0 404 NOT FOUND\r\nContent-Type: text/html\r\n\r\n";
 
+int argc;
+char **argv;
 void session(socket_ptr sock, std::string path)
 {
   try
@@ -80,6 +83,7 @@ void session(socket_ptr sock, std::string path)
 
 void server(boost::asio::io_service& io_context, unsigned short port, std::string filepath, std::string IP_addr)
 {
+  getopt(argc, argv, " ");	
   boost::asio::ip::address  addr;
   addr.from_string(IP_addr);	
   tcp::acceptor a(io_context, tcp::endpoint(addr, port));
